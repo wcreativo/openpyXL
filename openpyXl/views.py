@@ -18,7 +18,9 @@ def reportXLS(request):
     response['Content-Disposition'] = 'attachment; filename=Ficha_Campo.xlsx'
     # ws = wb.active
     list_photos = ['media/foto_1.jpg', 'media/foto_2.jpg', 'media/foto_3.jpg', 'media/foto_4.jpg',
-                   'media/foto_5.jpg', 'media/foto_6.jpg', 'media/foto_7.jpg', 'media/foto_8.jpg', 'media/foto_9.jpg']
+                   'media/foto_5.jpg', 'media/foto_6.jpg', 'media/foto_7.jpg', 'media/foto_8.jpg', 'media/foto_9.jpg',
+                   'media/foto_10.jpg', 'media/foto_11.jpg', 'media/foto_12.jpg', 'media/foto_13.jpg',
+                   'media/foto_14.jpg', 'media/foto_15.jpg', 'media/foto_16.jpg', 'media/foto_17.jpg']
     sheets_positions = ['B7', 'Y7', 'B24', 'Y24']
 
     list_photos_positions = list(zip(cycle(sheets_positions), list_photos))
@@ -46,7 +48,6 @@ def reportXLS(request):
             sheet.add_image(img, sheet_position_photo[0])
         elif index >= 8:
             sheet_name = "Registro_fotografico Copy" + str((index // 4)-1)
-            print("Este es el sheet name: ", sheet_name)
             sheet = wb.get_sheet_by_name(sheet_name)
             img = Image(sheet_position_photo[1])
             img.width = 350
